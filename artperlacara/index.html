@@ -177,6 +177,65 @@ let intensity = 0;
 
 //Si hi ha deteccions i almenys una cara
 if (detections && detections.length > 0) {
-// Es recuperen les expressions facials de la primera detecció
-let expr = detecions 
-          
+//Es recuperen les expressions facials de la primera detecció
+let expr = detecions[0}.expressions;
+//Es determina quina és l'expressió dominat (amb més probabilitat) comparant els valors ç
+dominant= Object.keys(expr).reduce((a, b) => expr[a] > expr[b] ? a : b);
+// També s'extreu la intensitat de l'expressió dominant
+intensity = expr[dominant, intensity];
+}
+
+// Es dibuixa art geomètric diferent segons el sentiment detectat 
+drewDifferentArt(dominant, intensity);
+
+// Dibuixa un text amb el nom de l'expressió facial a la part superior del canvas
+noStroke();
+fill(44, 169, 225);
+textSize(48);
+textAlign(CENTER, CENTER);
+
+text ("Expressió:" + dominat, width/2,50);
+//"width/2" centra el text horitzontalment i "50" és la coordenada vertical
+
+// Dibuixa una mini imatge de la cara a la part inferior dreta del canvas
+if (detections && detections.length > 0) {
+// Es fa servir la imatge del video capturat per representar la cara
+imatge(video, width - miniWidth - 20, height - miniHeight - 20, miniWidth,
+miniHeight);
+}
+}
+
+// Funció per dibuixar art geomètric en funció de l'expressió facial detectada
+function drawDifferentArt(dominant, intensity){
+push();
+// Guarda l'estat actual de les transformacions gràfiques
+
+translate(width/2, height/2);
+// Trasllada l'origen del sistema de coordenades al centre del canvas
+
+noFill();
+// Es desactiva el farcit (no es pinta amb el color les formes interiors)
+
+strokeWeight(4);
+// Defineix l'amplada del traç (línia de dibuix) en 4 píxels
+
+// Utiltza una estructura switch per triar el dibuix en funció del sentiment detectat switch (dominant) {
+case "happy":
+// Cas: expressió "happy" (feliç) --> es dibuixen ones radials
+for (let i= 1; i <= 10; i++) {
+// Es recorre des de 1 fins a 10 per dibuixar cercles creixents
+stroke(random(200,255), random(200,255),0,150);
+// Cada cercle té un traç amb tonalitats grogues (el color és aleatori entre 200 i 255 per vermell i verd)
+ellipse(0,0,i * 20 * intensity);
+// Dibuixa una el·lipse centrada, amb mida en funció del número d'interació i la intensitat de l'expressió
+}
+break;
+case "sad":
+// Cas: expressió "sad" (trist) --> es dibuixen línies verticals
+stroke(50, 100, 200, 150);
+// Traç amb un color blau fosc translúcid
+for (let x=-200; x< <= 200, x += 40) {
+// Dibuixa línies verticals espaiades cada 40 píxels des del -200 fins al 200 en l'eix X line(x,-200,x,200);
+}
+break;
+
