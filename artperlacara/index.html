@@ -274,6 +274,34 @@ break;
 case 'surprised':
 stroke(0,150,255,150); // blau clar
 beginShape();
+vertex(197, 116.1875);
+vertex(169, 179.1875);
+vertex(167, 231.1875);
+vertex(165, 292.1875);
+vertex(164, 340.1875);
+vertex(191, 380.1875);
+vertex(183, 409.1875);
+vertex(157, 424.1875);
+vertex(123, 431.1875);
+vertex(95, 427.1875);
+vertex(103, 402.1875);
+vertex(104, 365.1875);
+vertex(99, 344.1875);
+vertex(110, 325.1875);
+vertex(107, 285.1875);
+vertex(117, 267.1875);
+vertex(99, 183.1875);
+vertex(102, 142.1875);
+vertex(114, 105.1875);
+vertex(129, 45.1875);
+vertex(138, 12.1875);
+vertex(158, 0.1875);
+vertex(198, 3.1875);
+vertex(196, 21.1875);
+vertex(199, 33.1875);
+vertex(199, 56.1875);
+vertex(198, 109.1875);
+endShape();
 for (let i = 0; i < 20; i++) {
 let angle = random(TWO_PI);
 let r = 50 + 100 * intensity;
@@ -286,7 +314,7 @@ break;
 
 case 'disgusted':
 stroke(0,150,0,150); // verd
-beginShape();
+beginShape(); // nas
 for (let i = 0; i < 12; i++) {
 let angle = map(i, 0, 12, 0, TWO_PI);
 let r = 75 + random(-50, 50) * intensity;
@@ -299,7 +327,32 @@ break;
 
 default:
 stroke(150,150,150,150); // gris suau
-beginShape();
+beginShape(); // coll
+vertex(158, 710.1875);
+vertex(158, 731.1875);
+vertex(164, 761.1875);
+vertex(150, 792.1875);
+vertex(146, 799.1875);
+vertex(165, 799.1875);
+vertex(188, 797.1875);
+vertex(214, 799.1875);
+vertex(242, 799.1875);
+vertex(265, 799.1875);
+vertex(289, 798.1875);
+vertex(316, 798.1875);
+vertex(339, 798.1875);
+vertex(341, 767.1875);
+vertex(345, 722.1875);
+vertex(344, 695.1875);
+vertex(340, 656.1875);
+vertex(340, 626.1875);
+vertex(299, 642.1875);
+vertex(256, 673.1875);
+vertex(230, 689.1875);
+vertex(182, 699.1875);
+vertex(157, 699.1875);
+vertex(158, 711.1875);
+endShape();
 vertex(0, 0);
 vertex(VIRTUAL_W, 0);
 vertex(VIRTUAL_W, VIRTUAL_H);
